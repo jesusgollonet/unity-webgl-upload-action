@@ -1,0 +1,9 @@
+name: 'Unity WebGL Upload'
+description: 'Upload Unity WebGL build to AWS S3 and compatible environments'
+
+runs: 
+  using: 'node20'
+  main: 'index.js'
+
+
+

@@ -1,4 +1,4 @@
-import core from "@actions/core";
+import * as core from "@actions/core";
 
 const region = core.getInput("aws-region");
 const bucketName = core.getInput("bucket-name");

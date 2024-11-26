@@ -1,6 +1,29 @@
 name: 'Unity WebGL Upload'
 description: 'Upload Unity WebGL build to AWS S3 and compatible environments'
 
+inputs:
+  aws-region:
+    description: 'AWS region'
+    required: true
+  aws-access-key-id:
+    description: 'AWS access key id'
+    required: true
+  aws-secret-access-key:
+    description: 'AWS secret access key'
+    required: true
+  bucket-name:
+    description: 'AWS S3 bucket name'
+    required: true
+  build-folder:
+    description: 'Unity WebGL build folder'
+    required: true
+    default: 'build'
+  addressables-folder:
+    description: 'Unity Addressables folder'
+    required: false
+    default: 'addressables'
+
+
 runs: 
   using: 'node20'
   main: 'index.js'

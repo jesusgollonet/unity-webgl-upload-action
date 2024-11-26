@@ -1,0 +1,16 @@
+{
+  "name": "unity-webgl-upload-action",
+  "version": "1.0.0",
+  "description": "Upload unity webgl projects with correct content types, encoding, compression",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.11.1"
+  }
+}

@@ -8,3 +8,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./
+        with: 
+          aws-region: 'eu-central-1'
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          bucket-name: ${{ secrets.BUCKET_NAME}} 
+          build-folder: 'build'
+          addressables-folder: 'addressables'

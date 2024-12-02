@@ -24,23 +24,23 @@ const mimeTypes = {
   ".woff2": "font/woff2",
   ".ttf": "font/ttf",
   ".otf": "font/otf",
-  ".gz": "application/gzip",
-  ".br": "application/octet-stream",
   ".bundle": "application/application/octet-stream",
 };
 
 // Function to get MIME type based on file extension
-function getContentType(fileName) {
+function getContentType(fileName: string) {
   // go through the keys of the mimeTypes object and find the one that matches the file extension
   // longer are first
-  const extension = Object.keys(mimeTypes).find((ext) =>
+  const extension: string | undefined = Object.keys(mimeTypes).find((ext) =>
     fileName.endsWith(ext),
   );
-  return mimeTypes[extension] || "application/octet-stream";
+  return extension
+    ? mimeTypes[extension as keyof typeof mimeTypes]
+    : "application/octet-stream";
 }
 
 // Function to set Content-Encoding for compressed files
-function getContentEncoding(fileName) {
+function getContentEncoding(fileName: string): string | null {
   const extension = path.extname(fileName);
   if (extension === ".br") return "br";
   if (extension === ".gz") return "gzip";
@@ -48,8 +48,8 @@ function getContentEncoding(fileName) {
 }
 
 export default async function uploadDirectory(
-  s3Bucket,
-  localPath,
+  s3Bucket: string,
+  localPath: string,
   s3PathPrefix = "",
 ) {
   const files = await readdir(localPath, { withFileTypes: true });
@@ -67,7 +67,7 @@ export default async function uploadDirectory(
           Key: `${s3PathPrefix}${file.name}`,
           Body: fileContent,
           ContentType: getContentType(file.name),
-          ContentEncoding: getContentEncoding(file.name),
+          ContentEncoding: getContentEncoding(file.name) ?? undefined,
         }),
       );
     }

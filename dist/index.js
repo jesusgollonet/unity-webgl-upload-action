@@ -25547,6 +25547,14 @@ module.exports = {
 
 /***/ }),
 
+/***/ 8879:
+/***/ ((module) => {
+
+module.exports = eval("require")("./src/uploadDirectory");
+
+
+/***/ }),
+
 /***/ 2613:
 /***/ ((module) => {
 
@@ -27410,6 +27418,8 @@ module.exports = parseParams
 /************************************************************************/
 var __webpack_exports__ = {};
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(7484);
+/* harmony import */ var _src_uploadDirectory__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(8879);
+
 
 
 const region = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("aws-region");
@@ -27422,4 +27432,5 @@ console.log(`Region: ${region}`);
 console.log(`Bucket Name: ${bucketName}`);
 console.log(`Build Folder: ${buildFolder}`);
 console.log(`Addressables Folder: ${addressablesFolder}`);
+_src_uploadDirectory__WEBPACK_IMPORTED_MODULE_1__(bucketName, buildFolder, "test/");
 

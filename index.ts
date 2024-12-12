@@ -12,4 +12,4 @@ console.log(`Bucket Name: ${bucketName}`);
 console.log(`Build Folder: ${buildFolder}`);
 console.log(`Addressables Folder: ${addressablesFolder}`);
 
-//uploadDirectory(bucketName, buildFolder, "test/");
+uploadDirectory(bucketName, buildFolder, "test/");

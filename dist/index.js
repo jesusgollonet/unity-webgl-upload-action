@@ -59665,6 +59665,7 @@ const region = core.getInput("aws-region");
 const bucketName = core.getInput("bucket-name");
 const buildFolder = core.getInput("build-folder");
 const addressablesFolder = core.getInput("addressables-folder");
+console.log(process.env);
 //console.log("wave hand");
 console.log(`Region: ${region}`);
 console.log(`Bucket Name: ${bucketName}`);

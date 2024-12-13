@@ -7,6 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Create build folder
+        run: |
+          mkdir build addressables
+          date > build/dummy
+          date > addressables/dummy
+
       - uses: ./
         with: 
           aws-region: 'eu-central-1'

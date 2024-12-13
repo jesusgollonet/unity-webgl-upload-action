@@ -2,7 +2,7 @@ import { readFile, readdir } from "fs/promises";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import path from "path";
 
-const s3 = new S3Client({ region: "eu-central-1" });
+const s3 = new S3Client({ region: process.env.AWS_REGION });
 
 const mimeTypes = {
   ".js.br": "application/octet-stream",

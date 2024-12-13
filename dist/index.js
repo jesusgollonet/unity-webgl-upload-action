@@ -59703,7 +59703,7 @@ exports["default"] = uploadDirectory;
 const promises_1 = __nccwpck_require__(1943);
 const client_s3_1 = __nccwpck_require__(3711);
 const path_1 = __importDefault(__nccwpck_require__(6928));
-const s3 = new client_s3_1.S3Client({ region: "eu-central-1" });
+const s3 = new client_s3_1.S3Client({ region: process.env.AWS_REGION });
 const mimeTypes = {
     ".js.br": "application/octet-stream",
     ".js.gz": "application/octet-stream",

@@ -1,0 +1,33 @@
+name: Verify Action
+
+on: 
+  push:
+    branches:
+      - main
+    paths:
+      - '*.ts'
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify
+        run: |
+          if [ "$(git diff --ignore-space-at-eol dist/ | wc -l)" -gt "0" ]; then
+            echo "::error::Detected uncommitted changes after build. Please run 'npm run build' locally and commit the changes."
+            git diff
+            exit 1
+          fi

@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "ncc build index.ts -o dist"
+    "build": "pwd && ls && ncc build index.ts -d -o dist"
   },
   "keywords": [],
   "author": "",

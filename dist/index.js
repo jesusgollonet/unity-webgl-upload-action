@@ -59655,6 +59655,15 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -59671,12 +59680,19 @@ const addressablesFolder = core.getInput("addressables-folder");
 process.env.AWS_REGION = region;
 process.env.AWS_ACCESS_KEY_ID = accessKeyId;
 process.env.AWS_SECRET_ACCESS_KEY = secretAccessKey;
-console.log("wave hand");
 console.log(`Region: ${region}`);
 console.log(`Bucket Name: ${bucketName}`);
 console.log(`Build Folder: ${buildFolder}`);
 console.log(`Addressables Folder: ${addressablesFolder}`);
-(0, upload_directory_1.default)(bucketName, buildFolder, "test/");
+const uploadActions = [(0, upload_directory_1.default)(bucketName, buildFolder, "build/")];
+if (addressablesFolder) {
+    uploadActions.push((0, upload_directory_1.default)(bucketName, addressablesFolder, "addressables/"));
+}
+(function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield Promise.all(uploadActions);
+    });
+})();
 
 
 /***/ }),
@@ -59747,8 +59763,6 @@ function uploadDirectory(s3Bucket_1, localPath_1) {
     return __awaiter(this, arguments, void 0, function* (s3Bucket, localPath, s3PathPrefix = "") {
         var _a;
         const files = yield (0, promises_1.readdir)(localPath, { withFileTypes: true });
-        console.log("files!!");
-        console.log(s3Bucket, localPath, s3PathPrefix);
         for (const file of files) {
             const filePath = path_1.default.join(localPath, file.name);
             if (file.isDirectory()) {

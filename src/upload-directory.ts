@@ -51,10 +51,8 @@ export default async function uploadDirectory(
   s3Bucket: string,
   localPath: string,
   s3PathPrefix = "",
-) {
+): Promise<void> {
   const files = await readdir(localPath, { withFileTypes: true });
-  console.log("files!!");
-  console.log(s3Bucket, localPath, s3PathPrefix);
 
   for (const file of files) {
     const filePath = path.join(localPath, file.name);

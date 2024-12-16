@@ -1,5 +1,5 @@
 import * as core from "@actions/core";
-import uploadDirectory from "./src/upload-directory";
+import uploadDirectory from "./upload-directory";
 
 const region = core.getInput("aws-region");
 const bucketName = core.getInput("bucket-name");

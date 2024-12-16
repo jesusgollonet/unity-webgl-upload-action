@@ -5,13 +5,15 @@ on:
     branches:
       - main
     paths:
-      - '*.ts'
       - 'package.json'
       - 'package-lock.json'
+      - 'tsconfig.json'
+      - 'src/**'
+      - 'dist/**'
 
 
 jobs:
-  test:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

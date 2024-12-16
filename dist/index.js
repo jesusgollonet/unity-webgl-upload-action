@@ -59618,7 +59618,7 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 98:
+/***/ 9407:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 
@@ -59671,7 +59671,6 @@ const addressablesFolder = core.getInput("addressables-folder");
 process.env.AWS_REGION = region;
 process.env.AWS_ACCESS_KEY_ID = accessKeyId;
 process.env.AWS_SECRET_ACCESS_KEY = secretAccessKey;
-console.log(process.env);
 //console.log("wave hand");
 console.log(`Region: ${region}`);
 console.log(`Bucket Name: ${bucketName}`);
@@ -61680,5 +61679,5 @@ module.exports = /*#__PURE__*/JSON.parse('{"name":"@aws-sdk/client-sts","descrip
 /******/ // startup
 /******/ // Load entry module and return exports
 /******/ // This entry module is referenced by other modules so it can't be inlined
-/******/ var __webpack_exports__ = __nccwpck_require__(98);
+/******/ var __webpack_exports__ = __nccwpck_require__(9407);
 /******/ 

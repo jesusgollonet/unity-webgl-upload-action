@@ -21,7 +21,6 @@ inputs:
   addressables-folder:
     description: 'Unity Addressables folder'
     required: false
-    default: 'addressables'
 
 
 runs: 

@@ -20,4 +20,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           bucket-name: ${{ secrets.BUCKET_NAME}} 
           build-folder: 'build'
-          addressables-folder: 'addressables'
+          #addressables-folder: 'addressables'

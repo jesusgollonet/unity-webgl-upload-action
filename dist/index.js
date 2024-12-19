@@ -59676,6 +59676,7 @@ const buildFolder = core.getInput("build-folder");
 const accessKeyId = core.getInput("aws-access-key-id");
 const secretAccessKey = core.getInput("aws-secret-access-key");
 const addressablesFolder = core.getInput("addressables-folder");
+const targetFolder = core.getInput("target-folder");
 console.log("addressables folder", core.getInput("addressables-folder"));
 // env variables are not automatically set in the action
 process.env.AWS_REGION = region;
@@ -59684,8 +59685,9 @@ process.env.AWS_SECRET_ACCESS_KEY = secretAccessKey;
 console.log(`Region: ${region}`);
 console.log(`Bucket Name: ${bucketName}`);
 console.log(`Build Folder: ${buildFolder}`);
+console.log(`Target Folder: ${targetFolder}`);
 console.log(`Addressables Folder: ${addressablesFolder}`);
-const uploadActions = [(0, upload_directory_1.default)(bucketName, buildFolder, "build/")];
+const uploadActions = [(0, upload_directory_1.default)(bucketName, buildFolder, targetFolder)];
 if (addressablesFolder) {
     uploadActions.push((0, upload_directory_1.default)(bucketName, addressablesFolder, "addressables/"));
 }

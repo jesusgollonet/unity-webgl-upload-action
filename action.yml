@@ -18,6 +18,10 @@ inputs:
     description: 'Unity WebGL build folder'
     required: true
     default: 'build'
+  target-folder:
+    description: 'Target folder in S3'
+    required: false
+    default: ''
   addressables-folder:
     description: 'Unity Addressables folder'
     required: false
